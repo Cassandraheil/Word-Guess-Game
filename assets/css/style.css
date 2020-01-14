@@ -1,3 +1,23 @@
-#mainpic {
-    max-width: 100%;
+body{
+    background: url("../images/background.jpg");
+}    
+
+h1{
+    font-size: 100px;
+    font-weight: bolder;
+}
+#mainpic{
+  max-width: 650px;
+  
+
+}
+
+main{float: left;
+    width: 100%;
+    max-width: 650px;
+    padding: 40px;
+    background: lightseagreen;
+    border: 1px solid #ddd;
+    text-align: center;
+    
 }

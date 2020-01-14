@@ -1,23 +1,23 @@
 window.onload = function() {
-    var windwaker = ["w", "i", "n", "d", "w", "a", "k", "e", "r"];
-    var breathOfTheWild = ["b", "r", "e", "a", "t", "h", "o", "f", "t", "h", "e", "w", "i", "l", "d"];
-    var ocarinaOfTime = ["o", "c", "a", "r", "i", "n", "a", "o", "f", "t", "i", "m", "e"];
-    var majorasMask = ["m", "a", "j", "o", "r", "a", "s", "m", "a", "s", "k"];
-    var linksAwakening = ["l", "i", "n", "k", "s", "a", "w", "a", "k", "e", "n", "i", "n", "g"];
-    var twilightPrincess = ["t", "w", "i", "l", "i", "g", "h", "t", "p", "r", "i", "n", "c", "e", "s", "s"];
-    var skywardSword = ["s", "k", "y", "w", "a", "r", "d", "s", "w", "o", "r", "d",];
+    // var windwaker = ["w", "i", "n", "d", "w", "a", "k", "e", "r"];
+    // var breathOfTheWild = ["b", "r", "e", "a", "t", "h", "o", "f", "t", "h", "e", "w", "i", "l", "d"];
+    // var ocarinaOfTime = ["o", "c", "a", "r", "i", "n", "a", "o", "f", "t", "i", "m", "e"];
+    // var majorasMask = ["m", "a", "j", "o", "r", "a", "s", "m", "a", "s", "k"];
+    // var linksAwakening = ["l", "i", "n", "k", "s", "a", "w", "a", "k", "e", "n", "i", "n", "g"];
+    // var twilightPrincess = ["t", "w", "i", "l", "i", "g", "h", "t", "p", "r", "i", "n", "c", "e", "s", "s"];
+    // var skywardSword = ["s", "k", "y", "w", "a", "r", "d", "s", "w", "o", "r", "d",];
 
 
 
     var games = ["windwaker", "breathOfTheWild", "ocarinaOfTime", "majorasMask", "linksAwakening", "twilightPrincess", "skywardSword"];
-    var randomGames = games[Math.floor(Math.random()* games.length)];
-    var wordlength = document.getElementById("answer");
+    var pickedgame = games[Math.floor(Math.random()* games.length)];
+    var wordLength = document.getElementById("answer");
     wordLength = [];
 
 
 
    
-   for (var i = 0; i < windwaker.length; i++){
+   for (var i = 0; i < pickedgame.length; i++){
        wordLength[i] = "_"
        console.log(wordLength[i]);
    }
@@ -26,60 +26,59 @@ window.onload = function() {
     answer.textContent = wordLength.join(" ");
 
 
-    
- 
+    var attemptsLeft = 10;
+    var questionindex = document.getElementById("questionindex");
+    questionindex.textContent = "attempts left: " + attemptsLeft
+
 
     document.onkeyup = function(event) {
          var guess = event.key
          console.log(guess)
 
-        var questionindex = document.getElementById("questionindex");
-        var attemptsLeft = 10;
         attempsLeft = questionindex
-        questionindex.textContent = "attempts left: " + attemptsLeft
+        
+
                          
             var userguess = document.getElementById("userguess") 
             var guessed = "";
-            for (var i = 0; i < windwaker.length; i++){
-
-                guessed.push(guess); ///don't know why this won't work for me -.-
-             guessed = guess +guessed;
-            userguess.textContent = "already guessed: " + guess  /// cannot get it to keep guesses on page
+            for (var i = 0; i < pickedgame.length; i++){
+              
+             guessed = guess + guessed;
+            }
+             userguess.append(guess)
 
                
             
             
             
-            
-                if (windwaker[i] === guess){
+            for (var i = 0; i < pickedgame.length; i++){
+                if (pickedgame[i] === guess){
                     console.log("match found")
-                    guess === wordLength[i]
-                    
+                    userguess.add(wordLength[i], guess);
 
-                };
-                if (guess.indexOf(windwaker) == -1){
-                    console.log("wrong");
-                    attemptsLeft -= 1; 
-                    console.log(attemptsLeft) /// need to get this to show up on page
-                    if (attemptsLeft === 0){
-                        alert("you loose")
-                    }
 
+                    // var res = replace(wordLength[i], guess)   // trying to replace the dashes with the appropriate letter 
+                    // wordLength[i] === guess                     //same as above
+                    // wordLength[i].push(guess);               w/// why wont any of these work!!!!
                 }
-            }
-        
-
-
-            // else {
-            //     console.log("wrong")
-            //     userguess.textContent = event.key
-                
-            //     questionindex.textContent = "attempts left ..." + questionindex + -i
-            //     console.log(questionindex)
-            // }
+                };
             
-        }
-    }
+
+                // if (wordLength[i].indexOf(guess) == -1){
+                //     console.log("wrong")
+                //     attemptsLeft -= 1;          // i only want it to happen once 
+                //    console.log(attemptsLeft) /// need to get this to show up on page
+                    
+                // }
+                // if (attemptsLeft === 0){
+                //      console.log{"you loose"}        // put a reset
+                        
+                // }
+    }     
+
+}            
+        
+    
  
 
 
