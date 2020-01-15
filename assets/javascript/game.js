@@ -1,15 +1,6 @@
 window.onload = function() {
-    // var windwaker = ["w", "i", "n", "d", "w", "a", "k", "e", "r"];
-    // var breathOfTheWild = ["b", "r", "e", "a", "t", "h", "o", "f", "t", "h", "e", "w", "i", "l", "d"];
-    // var ocarinaOfTime = ["o", "c", "a", "r", "i", "n", "a", "o", "f", "t", "i", "m", "e"];
-    // var majorasMask = ["m", "a", "j", "o", "r", "a", "s", "m", "a", "s", "k"];
-    // var linksAwakening = ["l", "i", "n", "k", "s", "a", "w", "a", "k", "e", "n", "i", "n", "g"];
-    // var twilightPrincess = ["t", "w", "i", "l", "i", "g", "h", "t", "p", "r", "i", "n", "c", "e", "s", "s"];
-    // var skywardSword = ["s", "k", "y", "w", "a", "r", "d", "s", "w", "o", "r", "d",];
 
-
-
-    var games = ["windwaker", "breathOfTheWild", "ocarinaOfTime", "majorasMask", "linksAwakening", "twilightPrincess", "skywardSword"];
+    var games = ["windwaker", "breathofthewild", "ocarinaoftime", "majorasmask", "linksawakening", "twilightprincess", "skywardsword"];
     var pickedgame = games[Math.floor(Math.random()* games.length)];
     var wordLength = document.getElementById("answer");
     wordLength = [];
@@ -34,6 +25,7 @@ window.onload = function() {
     document.onkeyup = function(event) {
          var guess = event.key
          console.log(guess)
+         guess.toLowerCase()
 
         attempsLeft = questionindex
         
@@ -53,21 +45,23 @@ window.onload = function() {
             
             for (var i = 0; i < pickedgame.length; i++){
                 if (pickedgame[i] === guess){
+                    answer.textContent = wordLength.join(" ");
                     console.log("match found")
-                    userguess.add(wordLength[i], guess);
+                    wordLength[i]= guess
+                    // wordLength.splice(wordLength[i], 1, guess)
+                    console.log(wordLength[i])      
+                  
 
-
-                    // var res = replace(wordLength[i], guess)   // trying to replace the dashes with the appropriate letter 
-                    // wordLength[i] === guess                     //same as above
-                    // wordLength[i].push(guess);               w/// why wont any of these work!!!!
+}             
                 }
                 };
-            
+            // if (wordlength[i].indexOf(guess) == -1){
+            //         console.log("wrong")
+            //         attemptsLeft -= 1;          // i only want it to happen once 
+            //        console.log(attemptsLeft)
+            //         }
 
-                // if (wordLength[i].indexOf(guess) == -1){
-                //     console.log("wrong")
-                //     attemptsLeft -= 1;          // i only want it to happen once 
-                //    console.log(attemptsLeft) /// need to get this to show up on page
+                 /// need to get this to show up on page
                     
                 // }
                 // if (attemptsLeft === 0){
@@ -76,22 +70,21 @@ window.onload = function() {
                 // }
     }     
 
-}            
+    //
+
+    // i was not able to get the attempts to go down when a wrong letter
+        // was chosen
+    // didn't get to show the user when they won the game
+    // wasn't able to get the reset with a new word working because i 
+        //couldn't get to the previous steps
+    // i have some code started on the attempts part of this, but they 
+        //break my code so I commented it out
+    //i added style to break apart the frustration i was having with the 
+        //javascript part. It made me less mad that i was getting something 
+        //done at least
+           
         
     
  
 
-
-
-//     document.getElementsByName(questionindex)(questionindex - 1);  
-// // Function to render questions.                         to move onto the next question-translate to next array i guess
-// function renderQuestion() {
-//     // If there are still more questions, render the next one.
-//     if (questionIndex <= (questions.length - 1)) {
-//       document.querySelector("#question").innerHTML = questions[questionIndex].q;
-//     }
-//     // If there aren't, render the end game screen.
-//     else {
-//       document.querySelector("#question").innerHTML = "Game Over!";
-//       document.querySelector("#score").innerHTML = "Final Score: " + score + " out of " + questions.length;} s}
 
