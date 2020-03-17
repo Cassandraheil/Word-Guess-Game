@@ -23,9 +23,8 @@ window.onload = function() {
 
 
     document.onkeyup = function(event) {
-         var guess = event.key
+         var guess = event.key.toLowerCase()
          console.log(guess)
-         guess.toLowerCase()
 
         attempsLeft = questionindex
         

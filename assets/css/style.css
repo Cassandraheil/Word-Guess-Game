@@ -1,6 +1,9 @@
 body{
     background: url("../images/background.jpg");
-}    
+} 
+*{
+    box-sizing: border-box;
+}   
 
 h1{
     color: yellow;
@@ -11,10 +14,11 @@ h1{
     font-family: cursive;
 }
 #mainpic{
-  max-width: 650px;
-  margin-left: 125px;
-  
-
+    width: 100%;
+    max-width: 650px;
+    padding: 20px;
+    margin-left: 90px;
+    
 }
 
 main{float: left;
